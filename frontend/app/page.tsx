@@ -1,9 +1,8 @@
+'use client';
+import React from 'react';
+import { MessageCircle, Clock, TrendingUp, Shield, CheckCircle, Star, ArrowRight, Phone, Mail } from 'lucide-react';
 
-"use client"
-import React, { useState } from 'react';
-import { MessageCircle, Clock, TrendingUp, Shield, CheckCircle, Star, ArrowRight, Phone, Mail, MapPin } from 'lucide-react';
-
-export default function Home() {
+export default function WhatsAppAILanding() {
   const whatsappNumber = "+642102343400";
   const whatsappMessage = "Hi! I'm interested in learning more about PropBot AI for my real estate business. Can you tell me more about getting started?";
   
@@ -107,7 +106,7 @@ export default function Home() {
                   
                   <div className="space-y-4">
                     <div className="bg-gray-100 rounded-2xl p-4 max-w-xs">
-                      <p className="text-gray-800">Hi! I'm interested in the 3BR apartment listing. Is it still available?</p>
+                      <p className="text-gray-800">Hi! I&apos;m interested in the 3BR apartment listing. Is it still available?</p>
                       <span className="text-xs text-gray-500">2:34 AM</span>
                     </div>
                     
@@ -209,7 +208,7 @@ export default function Home() {
                   <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <p className="text-gray-600 mb-6">"PropBot AI increased our lead response rate by 300%. We're closing deals that would have been lost before!"</p>
+              <p className="text-gray-600 mb-6">&ldquo;PropBot AI increased our lead response rate by 300%. We&apos;re closing deals that would have been lost before!&rdquo;</p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center text-white font-bold">
                   SM
@@ -227,7 +226,7 @@ export default function Home() {
                   <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <p className="text-gray-600 mb-6">"The 24/7 availability is a game-changer. International clients can inquire anytime, and we never miss an opportunity."</p>
+              <p className="text-gray-600 mb-6">&ldquo;The 24/7 availability is a game-changer. International clients can inquire anytime, and we never miss an opportunity.&rdquo;</p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold">
                   DJ
@@ -245,7 +244,7 @@ export default function Home() {
                   <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <p className="text-gray-600 mb-6">"Setup was incredibly easy, and the ROI was immediate. Our team can focus on closing while the bot handles inquiries."</p>
+              <p className="text-gray-600 mb-6">&ldquo;Setup was incredibly easy, and the ROI was immediate. Our team can focus on closing while the bot handles inquiries.&rdquo;</p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
                   LC
