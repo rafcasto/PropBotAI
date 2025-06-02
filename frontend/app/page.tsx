@@ -1,15 +1,37 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { trackButtonClick, pageview } from '../lib/analytics'; 
 import { MessageCircle, Clock, TrendingUp, Shield, CheckCircle, Star, ArrowRight, Phone, Mail } from 'lucide-react';
 
 export default function WhatsAppAILanding() {
+  const [mounted, setMounted] = useState(false);
   const whatsappNumber = "+642102343400";
   const whatsappMessage = "Hi! I'm interested in learning more about PropBot AI for my real estate business. Can you tell me more about getting started?";
   
-  const openWhatsApp = () => {
+  // Track initial page view only after component mounts
+  useEffect(() => {
+    setMounted(true);
+    pageview();
+  }, []);
+  
+  const openWhatsApp = (buttonLocation: string) => {
+    // Only track if component is mounted (client-side)
+    if (mounted) {
+      trackButtonClick(`whatsapp_${buttonLocation}`);
+    }
+    
     const encodedMessage = encodeURIComponent(whatsappMessage);
     const whatsappUrl = `https://wa.me/${whatsappNumber.replace('+', '')}?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
+  };
+
+  const handleWatchDemo = () => {
+    // Only track if component is mounted (client-side)
+    if (mounted) {
+      trackButtonClick('watch_demo');
+    }
+    // Add your demo logic here
+    console.log('Demo button clicked');
   };
 
   return (
@@ -31,7 +53,7 @@ export default function WhatsAppAILanding() {
               <a href="#contact" className="text-gray-600 hover:text-green-600 transition-colors">Contact</a>
             </nav>
             <button 
-              onClick={openWhatsApp}
+              onClick={() => openWhatsApp('header')}
               className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-all transform hover:scale-105"
             >
               Get Started
@@ -62,14 +84,17 @@ export default function WhatsAppAILanding() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <button 
-                  onClick={openWhatsApp}
+                  onClick={() => openWhatsApp('hero_primary')}
                   className="bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-green-700 hover:to-green-800 transition-all transform hover:scale-105 shadow-lg flex items-center justify-center"
                 >
                   <MessageCircle className="mr-2 w-5 h-5" />
                   Start Free Trial
                   <ArrowRight className="inline-block ml-2 w-5 h-5" />
                 </button>
-                <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg text-lg font-semibold hover:border-green-600 hover:text-green-600 transition-all">
+                <button 
+                  onClick={handleWatchDemo}
+                  className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg text-lg font-semibold hover:border-green-600 hover:text-green-600 transition-all"
+                >
                   Watch Demo
                 </button>
               </div>
@@ -270,7 +295,7 @@ export default function WhatsAppAILanding() {
           </p>
           
           <button
-            onClick={openWhatsApp}
+            onClick={() => openWhatsApp('cta_main')}
             className="bg-white text-green-600 px-12 py-5 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg flex items-center mx-auto"
           >
             <MessageCircle className="mr-3 w-6 h-6" />
