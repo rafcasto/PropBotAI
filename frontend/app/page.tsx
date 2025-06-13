@@ -6,7 +6,7 @@ import { MessageCircle, Clock, TrendingUp, Shield, CheckCircle, Star, ArrowRight
 export default function WhatsAppAILanding() {
   const [mounted, setMounted] = useState(false);
   const whatsappNumber = "+642102343400";
-  const whatsappMessage = "Hi! I'm interested in learning more about PropBot AI for my real estate business. Can you tell me more about getting started?";
+  const whatsappMessage = "What commercial office spaces do you have available in Takapuna right now?";
   
   // Track initial page view only after component mounts
   useEffect(() => {
